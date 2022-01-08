@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 # Run workflow on every push to the master branch
 on:
   push:
+    branches: [ master ]
 
 jobs:
   deploy-to-github-pages:
@@ -12,7 +13,7 @@ jobs:
     # uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v2
     
-    # sets up .NET Core SDK 3.1
+    # sets up .NET Core SDK 5.0 latest
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
@@ -22,7 +23,7 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish site.sln -c Release -o release --nologo
     
-    # changes the base-tag in index.html from '/' to 'site' to match GitHub Pages repository subdirectory
+    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to site
       run: sed -i 's/<base href="\/" \/>/<base href="\/site\/" \/>/g' release/wwwroot/index.html
     
@@ -38,5 +39,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: master
+        BRANCH: gh-pages
         FOLDER: release/wwwroot
