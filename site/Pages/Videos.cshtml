@@ -1,0 +1,31 @@
+﻿@page
+@model VideosModel
+@{
+    ViewData["Title"] = "Videos";
+}
+
+<div class="banner">
+    <div class="banner-content">
+        <a asp-page="/Index">Home</a>
+        <a asp-page="/Wie">Band</a>
+        <a asp-page="/Contact">Contact</a>
+        <a asp-page="/Repertoire">Repertoire</a>
+        <a asp-page="/Muziek">Muziek</a>
+        <a asp-page="/Videos">Videos</a>
+    </div>
+</div>
+<div class="main-content">
+    <div class="textstrip">
+        <div class="centercolumn">
+            @foreach (var video in this.Model.videos) {
+                <video controls>
+                    <source src="~/Video/@(video).mp4" type="video/mp4" />
+                </video>
+                <br />
+                <b>@(video) </b>
+                <br />
+                <br />
+            }
+        </div>
+    </div>
+</div>
