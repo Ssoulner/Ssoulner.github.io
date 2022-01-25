@@ -1,0 +1,33 @@
+﻿@page "/"
+
+@inject NavigationManager Manager;
+
+@code{
+    void ToIndex() => Manager.NavigateTo("");
+
+    void ToWie() => Manager.NavigateTo("Wie");
+
+    void ToContact() => Manager.NavigateTo("Contact");
+
+    void ToRepertoire() => Manager.NavigateTo("Repertoire");
+
+    void ToMuziek() => Manager.NavigateTo("Muziek");
+
+    void ToVideos() => Manager.NavigateTo("Videos");
+}
+
+<div class="title">
+    <div class="title-container">
+        <h1 class="title-text top-title">Rock & Roll and Rhythm & Blues Band</h1>
+        <h1 class="center-title">DIC</h1>
+        <h1 class="title-text bottom-title">  the Die Is Cast</h1>
+    </div>
+    <div class="buttons">
+        <a @onclick="ToWie"><input class="button" type="button" value="Wie zijn wij?" /></a>
+        <a @onclick="ToRepertoire"><input class="button" type="button" value="Repertoire" /></a>
+        <a @onclick="ToContact"><input class="button" type="button" value="Contact" /></a>
+        <a @onclick="ToMuziek"><input class="button" type="button" value="Muziek" /></a>
+        <a @onclick="ToVideos"><input class="button" type="button" value="Videos" /></a>
+    </div>
+    <img class="title-img" src="/Images/Dobbelsteen.png" />
+</div>

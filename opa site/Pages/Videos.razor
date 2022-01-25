@@ -1,24 +1,38 @@
-﻿@page
-@model WieModel
-@{
-    ViewData["Title"] = "Wie zijn wij";
-}
+﻿@page "/Wie"
 
-<div class="banner">
+@inject NavigationManager Manager;
+<!--Set title to muziek-->
+
+@code{
+    void ToIndex() => Manager.NavigateTo("");
+
+    void ToWie() => Manager.NavigateTo("Wie");
+
+    void ToContact() => Manager.NavigateTo("Contact");
+
+    void ToRepertoire() => Manager.NavigateTo("Repertoire");
+
+    void ToMuziek() => Manager.NavigateTo("Muziek");
+
+    void ToVideos() => Manager.NavigateTo("Videos");
+}
+<div class="banner" style="user-select:none">
     <div class="banner-content">
-        <a asp-page="/Index">Home</a>
-        <a asp-page="/Wie">Band</a>
-        <a asp-page="/Contact">Contact</a>
-        <a asp-page="/Repertoire">Repertoire</a>
-        <a asp-page="/Muziek">Muziek</a>
-        <a asp-page="/Videos">Videos</a>
+        <a @onclick="ToIndex">Home</a>
+        <a @onclick="ToWie">Band</a>
+        <a @onclick="ToContact">Contact</a>
+        <a @onclick="ToRepertoire">Repertoire</a>
+        <a @onclick="ToMuziek">Muziek</a>
+        <a @onclick="ToVideos">Videos</a>
     </div>
 </div>
+
+
 <div class="main-content">
     <div class="textstrip">
         <div class="wietitel">THE DIE IS CAST</div>
         <div style="padding: 0px 20px 10px 20px">
-            <br/>
+            <br />
             Het bloed kruipt waar het niet gaan kan
             <br />
             <br />
@@ -34,7 +48,7 @@
         </div>
         <div class="row">
             <div class="column">
-                <img class="txtimg" src="~/Images/band.png" />
+                <img class="txtimg" src="/Images/band.png" />
                 <br />
                 <b><i>We are the Band</i></b>
                 <br />
@@ -74,8 +88,8 @@
                 Breda, de ‘Jost Inn’. De mengeling van rock & roll, rhythm &
                 blues en pop-muziek sloeg bij het publiek aan, niet in het
                 minst, dankzij het aanstekelijk enthousiasme van de bandleden.
-                      <br /><br />
-                <img class="txtimg" src="~/Images/grotezaal.png" />
+                <br /><br />
+                <img class="txtimg" src="/Images/grotezaal.png" />
                 <br />
                 <b><i>In de grote zaal KMA 1970</i></b>
                 <br /><br />
@@ -99,7 +113,7 @@
                 steeds goed aan te slaan bij zowel het jongere als het oude(
                 re) publiek.
                 <br /><br />
-                <img class="txtimg" src="~/Images/actie.png" />
+                <img class="txtimg" src="/Images/actie.png" />
                 <br /><br />
                 <b><i>DIC in actie tijdens een optreden</i></b>
                 <br /><br />
@@ -126,7 +140,7 @@
                 redelijke onkostenvergoeding zullen deze oud-collega’s
                 uw feest graag van muziek voorzien. Organiseer uw eigen
                 festival!
-                      <br /><br />
+                <br /><br />
                 <div style="border: 3px solid #240293; padding: 18px 32px 18px 32px; word-spacing: 4px; line-height: 22px;">
                     <b>Bandleden</b>
                     <br />
@@ -154,7 +168,7 @@
         </div>
         <div style="padding: 10px 20px 10px 20px">
             <br /><br />
-            <img class="txtimg" src="~/Images/leden.png" />
+            <img class="txtimg" src="/Images/leden.png" />
             <br /><br />
             <b><i>DIC 20 Staand vlnr. Gido, Henk, Harry en Rienko; zittend Frits, Tjip en André</i></b>
         </div>
