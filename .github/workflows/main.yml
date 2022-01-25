@@ -21,7 +21,7 @@ jobs:
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish opa_site.csproj -c Release -o release --nologo
+      run: dotnet publish opa_site.sln -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'opa_site' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to opa_site
