@@ -189,9 +189,9 @@ html, body {
     line-height: 30px;
 }
 
-video {
-    max-width: 80vw;
-    max-height: auto;
+iframe {
+    width: 80vw;
+    height: 50vh;
 }
 
 @media only screen and (max-width: 400px) {
@@ -203,6 +203,11 @@ video {
 }
 
 @media only screen and (min-width: 1100px) {
+    iframe {
+        width: 55vw;
+        height: 50vh;
+    }
+    
     .title-img {
         top: auto;
         position: absolute;
